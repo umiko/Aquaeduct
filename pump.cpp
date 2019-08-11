@@ -1,4 +1,13 @@
+//AUTHOR:
+//umiko(https://github.com/umiko)
+//Permission to copy and modify is granted under the MIT license
+//
+//DESCRIPTION:
+//Definition of the functions surrounding the pump object
+
 #include "pump.hpp"
+
+//Constructors
 
 pump::pump(flowrate throughput, int pin, bool is_active = false) : m_flowrate(throughput), m_pin(pin), m_is_active(is_active)
 {
@@ -14,12 +23,16 @@ pump::~pump()
 {
 }
 
+//Functions
+
+//Toggles the pump on or off
 void pump::togglePump()
 {
     m_is_active = !m_is_active;
     digitalWrite(m_pin, m_is_active ? HIGH : LOW);
 }
 
+//Toggles the pump for a given amount of time
 void pump::timedToggle(ulong milliseconds)
 {
     togglePump();
@@ -27,12 +40,14 @@ void pump::timedToggle(ulong milliseconds)
     togglePump();
 }
 
+//Toggles the pump for a given amount of liquid
 void pump::amountToggle(float liters)
 {
     float secondsToToggle = liters / normalizedFlowrate();
     timedToggle(secondsToToggle * 1000);
 }
 
+//returns the flowrate in  liters per second
 float pump::normalizedFlowrate()
 {
     float multiplicator = 0;
@@ -58,21 +73,25 @@ float pump::normalizedFlowrate()
     return m_flowrate.m_amount_in_liters * multiplicator;
 }
 
+//returns if the pump is active or not
 bool pump::isActive()
 {
     return m_is_active;
 }
 
+//sets a new flowrate for the pump
 void pump::setFlowrate(flowrate f)
 {
     m_flowrate = f;
 }
 
+//sets the pump activation pin
 void pump::setPin(int pin)
 {
     m_pin = pin;
 }
 
+//sets if the pump is supposed to be active
 void pump::setPumpActivity(bool active)
 {
     m_is_active = active;

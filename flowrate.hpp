@@ -1,3 +1,11 @@
+//AUTHOR:
+//umiko(https://github.com/umiko)
+//Permission to copy and modify is granted under the MIT license
+//
+//DESCRIPTION:
+//The flowrate struct and time unit enum, used in the pump to calculate
+//the time needed to provide a given amount of fluid
+
 enum time_unit
 {
     millisecond,
