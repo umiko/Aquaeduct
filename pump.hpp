@@ -4,8 +4,9 @@
 //
 //DESCRIPTION:
 //Declaration of the pump object
-
+#pragma once
 #include <Arduino.h>
+#include <string>
 #include "flowrate.hpp"
 
 class pump
@@ -19,14 +20,15 @@ private:
     float normalizedFlowrate();
 
 public:
-    pump(flowrate throughput, int pin, bool is_active = false);
-    pump(float throughput, time_unit unit, int pin, bool is_active = false);
+    pump(flowrate throughput, int pin, bool is_active);
+    pump(float throughput, time_unit unit, int pin, bool is_active);
     ~pump();
     void togglePump();
-    void timedToggle(ulong milliseconds);
+    void timedToggle(unsigned long milliseconds);
     void amountToggle(float liters);
     bool isActive();
     void setPumpActivity(bool active);
     void setFlowrate(flowrate f);
     void setPin(int pin);
+    std::string toString();
 };

@@ -9,12 +9,12 @@
 
 //Constructors
 
-pump::pump(flowrate throughput, int pin, bool is_active = false) : m_flowrate(throughput), m_pin(pin), m_is_active(is_active)
+pump::pump(flowrate throughput, int pin, bool is_active) : m_flowrate(throughput), m_pin(pin), m_is_active(is_active)
 {
     pinMode(pin, OUTPUT);
 }
 
-pump::pump(float throughput, time_unit unit, int pin, bool is_active = false) : m_flowrate({throughput, unit}), m_pin(pin), m_is_active(is_active)
+pump::pump(float throughput, time_unit unit, int pin, bool is_active) : m_flowrate({throughput, unit}), m_pin(pin), m_is_active(is_active)
 {
     pinMode(pin, OUTPUT);
 }
@@ -33,7 +33,7 @@ void pump::togglePump()
 }
 
 //Toggles the pump for a given amount of time
-void pump::timedToggle(ulong milliseconds)
+void pump::timedToggle(unsigned long milliseconds)
 {
     togglePump();
     delay(milliseconds);
@@ -95,4 +95,11 @@ void pump::setPin(int pin)
 void pump::setPumpActivity(bool active)
 {
     m_is_active = active;
+}
+
+std::string pump::toString()
+{
+    std::string result;
+    result = "Flowrate: " + std::to_string(m_flowrate.m_amount_in_liters) + "/" + std::to_string(m_flowrate.m_unit) + "Pin: " + std::to_string(m_pin) + " Status: " + std::to_string(m_is_active);
+    return result;
 }
