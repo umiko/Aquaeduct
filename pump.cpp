@@ -97,9 +97,17 @@ void pump::setPumpActivity(bool active)
     m_is_active = active;
 }
 
-std::string pump::toString()
+void pump::printConfig()
 {
-    std::string result;
-    result = "Flowrate: " + std::to_string(m_flowrate.m_amount_in_liters) + "/" + std::to_string(m_flowrate.m_unit) + "Pin: " + std::to_string(m_pin) + " Status: " + std::to_string(m_is_active);
-    return result;
+    if (Serial)
+    {
+        Serial.print("Flowrate: ");
+        Serial.print(m_flowrate.m_amount_in_liters);
+        Serial.print("/");
+        Serial.println(m_flowrate.m_unit);
+        Serial.print("Pin: ");
+        Serial.println(m_pin);
+        Serial.print("Status: ");
+        Serial.println(m_is_active);
+    }
 }

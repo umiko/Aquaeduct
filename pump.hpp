@@ -4,9 +4,9 @@
 //
 //DESCRIPTION:
 //Declaration of the pump object
-#pragma once
+#ifndef PUMP_HPP
+#define PUMP_HPP
 #include <Arduino.h>
-#include <string>
 #include "flowrate.hpp"
 
 class pump
@@ -30,5 +30,6 @@ public:
     void setPumpActivity(bool active);
     void setFlowrate(flowrate f);
     void setPin(int pin);
-    std::string toString();
+    void printConfig();
 };
+#endif
