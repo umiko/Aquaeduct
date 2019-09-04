@@ -3,7 +3,7 @@
 //Permission to copy and modify is granted under the MIT license
 //
 //DESCRIPTION:
-//Definition of the functions surrounding the pump object
+//A test class to check functionality
 #include <Arduino.h>
 #include "flowrate.hpp"
 #include "pump.hpp"
@@ -20,7 +20,9 @@ void setup()
 
 void loop()
 {
-  //p.timedToggle(5000);
-
+  Serial.println("on");
+  p.timedToggle(5000);
+  Serial.println("off");
+  delay(5000);
   // put your main code here, to run repeatedly:
 }
