@@ -10,10 +10,10 @@
 
 enum time_unit
 {
-    millisecond,
-    second,
-    minute,
-    hour
+    _millisecond,
+    _second,
+    _minute,
+    _hour
 };
 
 struct flowrate

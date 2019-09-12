@@ -12,7 +12,7 @@
 class pump
 {
 private:
-    flowrate m_flowrate{0.0, second};
+    flowrate m_flowrate{0.0, _second};
     int m_pin{0};
     //pumps might be supposed to be on by default
     bool m_is_active{false};

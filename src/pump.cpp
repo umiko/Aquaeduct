@@ -54,17 +54,17 @@ float pump::normalizedFlowrate()
 
     switch (m_flowrate.m_unit)
     {
-    case millisecond:
-        multiplicator = 1000;
+    case _millisecond:
+        multiplicator = 1000.0;
         break;
-    case second:
-        multiplicator = 1;
+    case _second:
+        multiplicator = 1.0;
         break;
-    case minute:
-        multiplicator = 1 / 60;
+    case _minute:
+        multiplicator = 1.0 / 60.0;
         break;
-    case hour:
-        multiplicator = 1 / 3600;
+    case _hour:
+        multiplicator = 1.0 / 3600.0;
         break;
     default:
         break;
