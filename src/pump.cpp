@@ -8,6 +8,9 @@
 #include "pump.hpp"
 
 //Constructors
+pump::pump()
+{
+}
 
 pump::pump(flowrate throughput, int pin, bool is_active) : m_flowrate(throughput), m_pin(pin), m_is_active(is_active)
 {
@@ -44,6 +47,9 @@ void pump::timedToggle(unsigned long milliseconds)
 void pump::amountToggle(float liters)
 {
     float secondsToToggle = liters / normalizedFlowrate();
+    Serial.print("Will toggle pump for ");
+    Serial.print(secondsToToggle);
+    Serial.println(" seconds.");
     timedToggle(secondsToToggle * 1000);
 }
 

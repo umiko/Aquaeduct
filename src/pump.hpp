@@ -20,6 +20,7 @@ private:
     float normalizedFlowrate();
 
 public:
+    pump();
     pump(flowrate throughput, int pin, bool is_active);
     pump(float throughput, time_unit unit, int pin, bool is_active);
     ~pump();
