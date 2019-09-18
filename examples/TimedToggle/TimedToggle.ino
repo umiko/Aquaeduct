@@ -8,7 +8,7 @@
 #include "flowrate.hpp"
 #include "pump.hpp"
 
-pump p = pump(1.2f, minute, 2, false);
+pump p = pump(1.2f, _minute, 3, false);
 ;
 
 void setup()
